@@ -28,7 +28,7 @@ $ docker run -d -p 80:8000 --env-file .env -v ./app/logs:/app/logs --name fastap
 ```
 
 ### 📡 EC2에서의 배포 참고사항
-- 본인의 VPC 안에서 실행합니다.
+- 본인의 VPC를 생성하고 해당 VPC 안에 서버를 배치합니다.
 - EC2 인스턴스는 보안 그룹에서 80번 포트 인바운드를 허용해야 합니다.
 - EC2에 Docker(필요하다면 Git도) 설치되어 있어야 합니다.
 - .env 파일과 로그 디렉토리는 EC2 내부에 위치해야 하며, docker run 시 경로를 정확히 지정해야 합니다.
