@@ -29,9 +29,11 @@ WORKDIR /app
 # 빌드된 패키지 복사 (1단계에서 설치한 패키지를 이 이미지로 가져옴)
 COPY --from=builder /install/local /usr/local
 
+################### 이 부분의 경로를 변경해주세요 ###################
 # 실제 Python 애플리케이션 코드 복사
-COPY . .
+COPY app/ /app/
 
+WORKDIR /app
 # ❌ .env 같은 민감한 파일은 복사하지 않음 (외부 환경변수로 주입)
 
 # FastAPI 서버 실행 (0.0.0.0으로 외부에서도 접근 가능하게 함)
